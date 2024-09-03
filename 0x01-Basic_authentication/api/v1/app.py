@@ -3,12 +3,12 @@
 Route module for the API
 """
 from os import getenv
-from api.v1.auth.basic_auth import BasicAuth
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request
 from flask_cors import (CORS, cross_origin)
 import os
 from api.v1.auth.auth import Auth
+from api.v1.auth.basic_auth import BasicAuth
 
 
 app = Flask(__name__)
@@ -24,13 +24,15 @@ if auth_type == 'basic_auth':
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
-    """unauthorized handler."""
+    """Unauthorized handler.
+    """
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
 def forbidden(error) -> str:
-    """unauthorized handler."""
+    """Forbidden handler.
+    """
     return jsonify({"error": "Forbidden"}), 403
 
 
