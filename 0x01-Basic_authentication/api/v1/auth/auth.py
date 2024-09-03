@@ -12,10 +12,13 @@ class Auth:
         if path:
             return False
 
+
     def authorization_header(self, request=None) -> str:
         """that returns None - request will be the Flask request object"""
         if request:
             return None
+
+
     def current_user(self, request=None) -> TypeVar('User'):
         """that returns None - request will be the Flask request object"""
         return None
